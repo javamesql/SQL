@@ -4,6 +4,12 @@ FROM Views
 WHERE viewer_id = author_id
 ORDER BY author_id ASC;
 
+--Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+SELECT product_name, year, price
+FROM Sales s
+INNER JOIN Product p ON 
+    s.product_id = p.product_id;
+
 --Write a solution to find managers with at least five direct reports.
 SELECT name 
 FROM Employee 
@@ -12,12 +18,6 @@ WHERE id IN (
     FROM Employee 
     GROUP BY managerId 
     HAVING COUNT(*) >= 5);
-
---Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
-SELECT product_name, year, price
-FROM Sales s
-INNER JOIN Product p ON 
-    s.product_id = p.product_id;
 
 --Write a solution to find the employees who are high earners in each of the departments.
 SELECT D.name AS 'Department', E.name AS 'Employee', E.salary AS 'Salary' 
