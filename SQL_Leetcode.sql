@@ -61,4 +61,10 @@ LEFT JOIN Transactions t
 WHERE transaction_id IS NULL
 GROUP BY customer_id;
 
+--Write a solution to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
+SELECT A.id
+FROM Weather A
+LEFT JOIN Weather B
+    ON DATE(A.recordDate) = DATE(B.recordDate + INTERVAL 1 DAY)
+WHERE A.temperature > B.temperature;
 
